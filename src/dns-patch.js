@@ -4,7 +4,7 @@ import { classifyAddress, stripIpv6Brackets } from "./classify.js";
 import { resolveRealAddresses } from "./real.js";
 
 const require = createRequire(import.meta.url);
-const PATCHED = Symbol("dsh-web-fetch-fake-ip-dns");
+const PATCHED = Symbol("dsh-real-ip-dns");
 
 /**
  * @param {{ address: string, family: number }[]} entries

@@ -1,8 +1,8 @@
 {
-  "name": "@liningyuan/dsh-web-fetch-fake-ip",
-  "version": "0.3.0",
-  "displayName": "Web fetch fake-ip",
-  "description": "When web fetch is handed a Clash/sing-box fake-ip, pin the real public address from DoH instead. Literal and private addresses stay blocked.",
+  "name": "dsh-real-ip",
+  "version": "0.1.0",
+  "displayName": "Real IP",
+  "description": "When fake-ip DNS answers a DSH lookup, pin the real public address instead. Literal and private addresses stay blocked.",
   "license": "MIT",
   "author": "NingYuanLee",
   "type": "module",
@@ -44,11 +44,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NingYuanLee/dsh-web-fetch-fake-ip.git"
+    "url": "git+https://github.com/NingYuanLee/dsh-real-ip.git"
   },
-  "homepage": "https://github.com/NingYuanLee/dsh-web-fetch-fake-ip#readme",
+  "homepage": "https://github.com/NingYuanLee/dsh-real-ip#readme",
   "bugs": {
-    "url": "https://github.com/NingYuanLee/dsh-web-fetch-fake-ip/issues"
+    "url": "https://github.com/NingYuanLee/dsh-real-ip/issues"
   },
   "keywords": [
     "dsh",

@@ -2,6 +2,11 @@
 
 ## 未发布（Unreleased）
 
+## 0.1.0
+
+- 包名改为 `dsh-real-ip`。旧名 `@liningyuan/dsh-web-fetch-fake-ip` 与已有包 `dsh-web-fetch-fakeip` 太接近，而且现在不只处理网页获取。
+- 行为与旧包 `0.3.0` 相同：网页获取和进程里的 `dns.lookup` 在只拿到已知 fake-ip 时改用真实公网地址。
+
 ## 0.3.0
 
 - 不只包住网页获取。进程里的 `dns.lookup` / `dns.promises.lookup` 也会在系统答案只是已知 fake-ip 时改成真实公网地址，因此全局 `fetch`、undici 和走默认 DNS 的模型请求同样生效。

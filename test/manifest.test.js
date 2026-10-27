@@ -56,7 +56,7 @@ test("whitelists runtime and display files and publishes to npm", () => {
   }
   assert.equal(pkg.publishConfig?.registry, "https://registry.npmjs.org");
   assert.equal(pkg.publishConfig?.tag, "latest");
-  assert.match(pkg.repository?.url ?? "", /github\.com\/NingYuanLee\/dsh-web-fetch-fake-ip/);
+  assert.match(pkg.repository?.url ?? "", /github\.com\/NingYuanLee\/dsh-real-ip/);
   assert.equal(pkg.icon, "./icon.svg");
 });
 
@@ -83,7 +83,7 @@ test("exports an icon within the harness size limit", () => {
 test("cordis row id is stable and name is the published package", () => {
   const patch = readText("cordis.patch.yml");
   const escaped = pkg.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  assert.match(patch, /id:\s*dsh-web-fetch-fake-ip/);
+  assert.match(patch, /id:\s*dsh-real-ip/);
   assert.match(patch, new RegExp(`name:\\s*"?${escaped}"?`));
 });
 

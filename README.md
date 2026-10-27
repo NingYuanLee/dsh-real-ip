@@ -1,6 +1,6 @@
-# dsh-web-fetch-fake-ip
+# dsh-real-ip
 
-[![CI](https://github.com/NingYuanLee/dsh-web-fetch-fake-ip/actions/workflows/ci.yml/badge.svg)](https://github.com/NingYuanLee/dsh-web-fetch-fake-ip/actions/workflows/ci.yml)
+[![CI](https://github.com/NingYuanLee/dsh-real-ip/actions/workflows/ci.yml/badge.svg)](https://github.com/NingYuanLee/dsh-real-ip/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![dsh](https://img.shields.io/badge/dsh-%3E%3D0.2.1--rc.2%20%3C0.3.0--0-6f42c1)](package.json)
 
@@ -8,7 +8,7 @@
 
 English | [中文](README.zh.md)
 
-When Clash or sing-box answers with a fake-ip, web fetch pins the real public address instead of refusing the lookup or connecting to the fake-ip.
+When Clash or sing-box answers with a fake-ip, DSH pins the real public address instead of refusing the lookup or connecting to the fake-ip.
 
 ## The problem
 
@@ -36,21 +36,18 @@ The same recovery is installed on Node's `dns.lookup` and `dns.promises.lookup`.
 ## Install
 
 ```bash
-dsh plugin --profile web add github:NingYuanLee/dsh-web-fetch-fake-ip
+dsh plugin --profile web add dsh-real-ip
 ```
 
 The package declares `dsh.bundle.patch`, so `dsh plugin add` writes the bundle into the profile. Restart DeepSeek Harness. The running process does not hot-load this plugin.
 
-npm rejects the unscoped name `dsh-web-fetch-fake-ip` as too similar to the existing package `dsh-web-fetch-fakeip`. The published name is scoped:
+`@liningyuan/dsh-web-fetch-fake-ip` is the previous name and is deprecated. npm will not accept `dsh-web-fetch-fake-ip` because it is too similar to the existing package `dsh-web-fetch-fakeip`.
+
+A GitHub or local checkout also works:
 
 ```bash
-dsh plugin --profile web add @liningyuan/dsh-web-fetch-fake-ip
-```
-
-A local checkout also works:
-
-```bash
-dsh plugin --profile web add ./dsh-web-fetch-fake-ip
+dsh plugin --profile web add github:NingYuanLee/dsh-real-ip
+dsh plugin --profile web add ./dsh-real-ip
 ```
 
 ## Compatibility
@@ -86,7 +83,7 @@ No credentials are read. Private and literal destinations stay blocked. Hostname
 ## Uninstall
 
 ```bash
-dsh plugin --profile web remove @liningyuan/dsh-web-fetch-fake-ip
+dsh plugin --profile web remove dsh-real-ip
 ```
 
 Restart DeepSeek Harness. The plugin stores no files, cache, or credentials, so removal leaves nothing behind. Web fetch goes back to the host's public-unicast check.

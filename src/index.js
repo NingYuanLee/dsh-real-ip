@@ -2,12 +2,12 @@ import { resolveAllowingBenchmarkRange } from "./allow.js";
 import { installProcessLookup } from "./dns-patch.js";
 
 /** Cordis plugin name. */
-export const name = "dsh-web-fetch-fake-ip";
+export const name = "dsh-real-ip";
 
 /** The web seam whose HTTP fetch provider this plugin wraps. */
 export const inject = ["web"];
 
-const PATCHED = Symbol("dsh-web-fetch-fake-ip");
+const PATCHED = Symbol("dsh-real-ip");
 
 /**
  * Replace the `http` provider's resolver. `requestOnce` then pins whatever this returns.

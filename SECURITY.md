@@ -11,7 +11,7 @@ reproduction steps. Expected first response within 7 days.
 
 ## Scope
 
-`dsh-web-fetch-fake-ip` wraps the desktop `http` web-fetch provider's `resolveAddresses` and
+`dsh-real-ip` wraps the desktop `http` web-fetch provider's `resolveAddresses` and
 replaces `dns.lookup` / `dns.promises.lookup` for the process. It does not modify `app.asar`,
 does not register a tool, and does not add a network listener.
 

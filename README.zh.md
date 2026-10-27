@@ -1,6 +1,6 @@
-# dsh-web-fetch-fake-ip
+# dsh-real-ip
 
-[![CI](https://github.com/NingYuanLee/dsh-web-fetch-fake-ip/actions/workflows/ci.yml/badge.svg)](https://github.com/NingYuanLee/dsh-web-fetch-fake-ip/actions/workflows/ci.yml)
+[![CI](https://github.com/NingYuanLee/dsh-real-ip/actions/workflows/ci.yml/badge.svg)](https://github.com/NingYuanLee/dsh-real-ip/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![dsh](https://img.shields.io/badge/dsh-%3E%3D0.2.1--rc.2%20%3C0.3.0--0-6f42c1)](package.json)
 
@@ -8,7 +8,7 @@
 
 [English](README.md) | 中文
 
-Clash 或 sing-box 返回 fake-ip 时，网页获取改为钉死真实公网地址，而不是拒绝解析或连到假地址。
+Clash 或 sing-box 返回 fake-ip 时，DSH 改为钉死真实公网地址，而不是拒绝解析或连到假地址。
 
 ## The problem
 
@@ -36,21 +36,18 @@ Clash 或 sing-box 返回 fake-ip 时，网页获取改为钉死真实公网地�
 ## Install
 
 ```bash
-dsh plugin --profile web add github:NingYuanLee/dsh-web-fetch-fake-ip
+dsh plugin --profile web add dsh-real-ip
 ```
 
 包里声明了 `dsh.bundle.patch`，所以 `dsh plugin add` 会把 bundle 写进 profile。然后完全退出并重新打开 DeepSeek Harness。当前进程不会热加载这个插件。
 
-npm 拒绝无作用域包名 `dsh-web-fetch-fake-ip`，因为它和已有包 `dsh-web-fetch-fakeip` 太像。发布名是带作用域的：
+`@liningyuan/dsh-web-fetch-fake-ip` 是旧名，已经废弃。npm 不接受 `dsh-web-fetch-fake-ip`，因为它和已有包 `dsh-web-fetch-fakeip` 太像。
+
+GitHub 或本地目录也可以：
 
 ```bash
-dsh plugin --profile web add @liningyuan/dsh-web-fetch-fake-ip
-```
-
-本地目录同样可以：
-
-```bash
-dsh plugin --profile web add ./dsh-web-fetch-fake-ip
+dsh plugin --profile web add github:NingYuanLee/dsh-real-ip
+dsh plugin --profile web add ./dsh-real-ip
 ```
 
 ## Compatibility
@@ -86,7 +83,7 @@ dsh plugin --profile web add ./dsh-web-fetch-fake-ip
 ## Uninstall
 
 ```bash
-dsh plugin --profile web remove @liningyuan/dsh-web-fetch-fake-ip
+dsh plugin --profile web remove dsh-real-ip
 ```
 
 重新打开 DeepSeek Harness。插件不保存文件、缓存或凭据，卸掉后没有残留。网页获取回到宿主自己的公网 unicast 检查。

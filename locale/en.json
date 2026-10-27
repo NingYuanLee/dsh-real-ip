@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Web fetch fake-ip",
-    "description": "When system DNS returns only a fake-ip, web fetch connects to the real public address instead. Private and literal addresses stay blocked."
+    "title": "Real IP",
+    "description": "When fake-ip DNS answers a lookup, DSH connects to the real public address instead. Private and literal addresses stay blocked."
   }
 }

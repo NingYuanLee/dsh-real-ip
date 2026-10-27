@@ -1,3 +1,3 @@
 - insert:
-    - id: dsh-web-fetch-fake-ip
-      name: "@liningyuan/dsh-web-fetch-fake-ip"
+    - id: dsh-real-ip
+      name: dsh-real-ip
