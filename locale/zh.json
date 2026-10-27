@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "网页获取 fake-ip",
+    "description": "系统 DNS 只给出 fake-ip 时，改查真实公网地址再连接。查不到才退回常见 fake-ip 段。私网和字面地址仍然拒绝。"
+  }
+}
