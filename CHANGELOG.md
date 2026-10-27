@@ -2,7 +2,11 @@
 
 ## 未发布（Unreleased）
 
-## 0.2.0
+## 0.3.0
+
+- 不只包住网页获取。进程里的 `dns.lookup` / `dns.promises.lookup` 也会在系统答案只是已知 fake-ip 时改成真实公网地址，因此全局 `fetch`、undici 和走默认 DNS 的模型请求同样生效。
+- 已经提前拿走 `node:dns/promises` 的 `lookup` 函数的调用方改不到；网页获取仍由原来的 provider 包装处理。
+- 私网答案和 IP 字面量不会被这次进程级改写换成公网地址。
 
 - npm 包名是 `@liningyuan/dsh-web-fetch-fake-ip`。无作用域名 `dsh-web-fetch-fake-ip` 与已有包 `dsh-web-fetch-fakeip` 过于相似，注册表拒绝发布。
 - 系统 DNS 只返回已知 fake-ip 时，先向公共 DNS 查询真实公网地址，查到就钉死真实地址，而不是连接 `198.18.x.x`。

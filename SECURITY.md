@@ -11,8 +11,9 @@ reproduction steps. Expected first response within 7 days.
 
 ## Scope
 
-`dsh-web-fetch-fake-ip` wraps the desktop `http` web-fetch provider's `resolveAddresses`. It does
-not modify `app.asar`, does not register a tool, and does not add a network listener.
+`dsh-web-fetch-fake-ip` wraps the desktop `http` web-fetch provider's `resolveAddresses` and
+replaces `dns.lookup` / `dns.promises.lookup` for the process. It does not modify `app.asar`,
+does not register a tool, and does not add a network listener.
 
 - The plugin does not read `$DSH_HOME/.credentials.yaml`, cookies, environment secrets, or request
   headers.
@@ -27,8 +28,9 @@ not modify `app.asar`, does not register a tool, and does not add a network list
 
 ## Outbound queries
 
-When the system answer for a hostname is only a known fake-ip, the plugin sends that hostname to
-public resolvers. It does not send the URL path, headers, or credentials.
+When a lookup used by web fetch or by `dns.lookup` / `dns.promises.lookup` returns only a known
+fake-ip, the plugin sends that hostname to public resolvers. It does not send the URL path,
+headers, or credentials. Private and literal answers are not sent.
 
 - UDP/53: `223.5.5.5`, `119.29.29.29`, `8.8.8.8`, `1.1.1.1`
 - DNS over HTTPS, by IP literal: `223.5.5.5` (SNI `dns.alidns.com`), `120.53.53.53` (SNI `doh.pub`),

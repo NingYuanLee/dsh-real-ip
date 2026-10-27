@@ -1,4 +1,5 @@
 import { resolveAllowingBenchmarkRange } from "./allow.js";
+import { installProcessLookup } from "./dns-patch.js";
 
 /** Cordis plugin name. */
 export const name = "dsh-web-fetch-fake-ip";
@@ -53,5 +54,6 @@ export function installFakeIpAllowance(web, resolver, realResolver) {
  * @param {{ web?: object }} ctx
  */
 export function apply(ctx) {
+  installProcessLookup();
   installFakeIpAllowance(ctx.web);
 }

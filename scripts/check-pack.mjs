@@ -24,6 +24,7 @@ const REQUIRED = [
   "src/allow.js",
   "src/classify.js",
   "src/real.js",
+  "src/dns-patch.js",
   "icon.svg",
   "locale/en.json",
   "locale/zh.json",

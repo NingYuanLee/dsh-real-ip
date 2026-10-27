@@ -29,6 +29,8 @@ Clash 或 sing-box 返回 fake-ip 时，网页获取改为钉死真实公网地�
 - 主机名本身是 IP 字面量时不走例外，所以 `http://198.18.x.x/` 仍然被拒绝。
 - NAT64 失败（`resolves through NAT64 to a non-public IPv4 address`）原样抛出。
 
+同样的恢复也会装到 Node 的 `dns.lookup` 和 `dns.promises.lookup` 上。全局 `fetch`、undici，以及其他走这两个函数解析的客户端（包括不经过网页获取的模型请求）都会拿到真实公网地址，而不是 fake-ip。解析到私网或字面量地址的主机名保持原样。启动时就已经拿到 `import { lookup } from "node:dns/promises"` 的代码不在这次补丁里；上面的网页获取包装仍然覆盖那条调用。
+
 配置了 HTTP 代理时，`requestVia` 本来就会跳过这道检查。这条路径本插件不改。
 
 ## Install

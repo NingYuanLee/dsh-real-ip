@@ -29,6 +29,8 @@ The plugin does not modify `app.asar`. It wraps `resolveAddresses` on the regist
 - A literal IP hostname never takes the exception, so `http://198.18.x.x/` stays blocked.
 - A NAT64 failure (`resolves through NAT64 to a non-public IPv4 address`) is rethrown unchanged.
 
+The same recovery is installed on Node's `dns.lookup` and `dns.promises.lookup`. Global `fetch`, undici, and other clients that resolve through those functions get a real public address instead of a fake-ip, including model requests that do not go through web fetch. A hostname that resolves to a private or literal address is left unchanged. Code that captured `import { lookup } from "node:dns/promises"` at load time is outside this patch; the web fetch provider wrapper above still covers that call.
+
 `requestVia` already skips this check when an HTTP proxy is configured. This plugin does not change that path.
 
 ## Install

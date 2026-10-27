@@ -1,6 +1,6 @@
 {
   "name": "@liningyuan/dsh-web-fetch-fake-ip",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "displayName": "Web fetch fake-ip",
   "description": "When web fetch is handed a Clash/sing-box fake-ip, pin the real public address from DoH instead. Literal and private addresses stay blocked.",
   "license": "MIT",
@@ -27,7 +27,7 @@
   ],
   "scripts": {
     "test": "node --test test/*.test.js",
-    "check": "node --check src/index.js && node --check src/allow.js && node --check src/classify.js && node --check src/real.js",
+    "check": "node --check src/index.js && node --check src/allow.js && node --check src/classify.js && node --check src/real.js && node --check src/dns-patch.js",
     "check:pack": "node scripts/check-pack.mjs",
     "prepublishOnly": "npm test && npm run check && npm run check:pack"
   },
